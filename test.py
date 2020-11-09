@@ -6,14 +6,24 @@
 
 from random import choice
 
-podcast_selection = [{"The Allusionist": "URL"}, {"No Such Thing as a Fish": "URL"}, {"Work In Sanity": "URL"}, {"Do By Friday": "URL"}]
+podcast_selection = []
 picked_podcasts = []
 
-chosen_podcast = choice(podcast_selection)
-print(chosen_podcast)
+with open("podcast_selection.txt", 'r') as file:
+    for line in file:
+        line = line.strip("\n")
+        podcast_selection.append(line)
 
-picked_podcasts.append(chosen_podcast)
-podcast_selection.remove(chosen_podcast)
+with open("picked_podcasts.txt", 'r') as file:
+    for line in file:
+        line = line.strip("\n")
+        picked_podcasts.append(line)
+
+# chosen_podcast = choice(podcast_selection)
+# print(chosen_podcast)
+
+# picked_podcasts.append(chosen_podcast)
+# podcast_selection.remove(chosen_podcast)
 
 print(podcast_selection)
 print(picked_podcasts)
